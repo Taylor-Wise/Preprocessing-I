@@ -55,9 +55,13 @@ table {
 
 html, body {
 	height: 100%;
+	font-size: 62.5%
 }
 
-.flexcolumn(){
+@mobile: (max-width: 500px);
+@FontS: 3rem;
+
+.flexC(){
 	display: flex;
 	flex-direction: column;
 }
@@ -71,61 +75,89 @@ html, body {
 	width: 90%;
 	margin: auto;
 	display:flex;
+	@media @mobile{
+		flex-direction: column;
+	}
 }
 
 .sidebar {
-	display: flex;
 	height: 100%;
 	width: 30%;
 	position: fixed;
 	left: 0;
 	background: #a6a6a6;
-	.flexcolumn();
+	.flexC();
 	.align();
 
+	@media @mobile {
+		background: purple;
+	}//media
 	h1{
-		font-size: 300%;
+		font-size: 5.5rem;
 		text-align: center;
-		color: #4d4d4d;
+		color: white;
 	}
 	nav {
-		.flexcolumn();
+		.flexC();
 		.align();
 		a{
-			text-decoration: none;
-			padding: 6px 8px 6px 16px;
-			font-size: 300%;
+			text-decoration: none;			margin: 4% 0 4% 0;
+			font-size: 5rem;
 			color: black;
 			&:hover{
 				color:white;
 			}//hover
 		}//a
 	}//nav
+	h2{
+		margin: 3%;
+		font-size: @FontS;
+		color:White;
+	}//h2
+	ul{
+		list-style-type: square;
+		li{
+			padding: 2%;
+			margin: 2rem;
+			font-size: 2rem;
+		}
+	}
   }//sidebar
   
   
 .main-content{
-	.flexcolumn();
+	.flexC();
 	align-items: stretch;
 	margin-left: 30%;
-}
-hr{
-	border: ;
-}
-section {
-	border: 2px solid black;
-	padding: 7%;
-	margin: 5%;
-	height:60%;
-	h2{
-		font-size: 350%;
-	} //h2
-	img {
-		width: 50%;
-		height: 50%;
-	}//img
-	p {
-		font-size: 150%;
-		line-height: 1.8;
+
+	hr{
+	width: 90%;
+	border:1px solid grey;
 	}
-}//section
+	section {
+		padding: 7%;
+		margin: 0 5% 0 5%;
+		height:60%;
+		h2{
+			border-bottom: 1px solid grey;
+			width: 100%;
+			font-size: 5rem;
+		} //h2
+		img {
+			width: 50%;
+			height: 50%;
+		}//img
+		p {
+			font-size: @FontS;
+			line-height: 1.8;
+		}//p
+		ul{
+		list-style-type: square;
+		li{
+			padding: 2%;
+			font-size: @FontS;
+		}
+		}
+	}//section
+}//main content
+
