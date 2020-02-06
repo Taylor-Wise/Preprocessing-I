@@ -58,6 +58,7 @@ html, body {
 	font-size: 62.5%
 }
 
+@GreyBG: #a6a6a6;
 @mobile: (max-width: 500px);
 @FontS: 3rem;
 
@@ -75,9 +76,6 @@ html, body {
 	width: 90%;
 	margin: auto;
 	display:flex;
-	@media @mobile{
-		flex-direction: column;
-	}
 }
 
 .sidebar {
@@ -85,34 +83,40 @@ html, body {
 	width: 30%;
 	position: fixed;
 	left: 0;
-	background: #a6a6a6;
+	background: @GreyBG;
 	.flexC();
 	.align();
-
-	@media @mobile {
-		background: purple;
-	}//media
 	h1{
 		font-size: 5.5rem;
 		text-align: center;
 		color: white;
-	}
+		@media @mobile {
+			font-size: 2.5rem;
+		}//media
+	}//h1
 	nav {
 		.flexC();
 		.align();
 		a{
-			text-decoration: none;			margin: 4% 0 4% 0;
+			text-decoration: none;	
+			margin: 10% 0 10% 0;
 			font-size: 5rem;
 			color: black;
 			&:hover{
 				color:white;
 			}//hover
+			@media @mobile {
+				font-size: 3rem;
+			}//media
 		}//a
 	}//nav
 	h2{
 		margin: 3%;
 		font-size: @FontS;
 		color:White;
+		@media @mobile {
+			font-size: 1.8rem;
+		}//media
 	}//h2
 	ul{
 		list-style-type: square;
@@ -120,8 +124,11 @@ html, body {
 			padding: 2%;
 			margin: 2rem;
 			font-size: 2rem;
-		}
-	}
+			@media @mobile {
+				font-size: 1.5rem;
+			}//media
+		}//li
+	}//ul
   }//sidebar
   
   
@@ -133,11 +140,11 @@ html, body {
 	hr{
 	width: 90%;
 	border:1px solid grey;
-	}
+	}//hr
 	section {
 		padding: 7%;
 		margin: 0 5% 0 5%;
-		height:60%;
+		
 		h2{
 			border-bottom: 1px solid grey;
 			width: 100%;
@@ -153,11 +160,35 @@ html, body {
 		}//p
 		ul{
 		list-style-type: square;
-		li{
-			padding: 2%;
-			font-size: @FontS;
-		}
-		}
+			li{
+				padding: 2%;
+				font-size: @FontS;
+			}//li
+		}//ul
 	}//section
 }//main content
 
+
+.contactForm {
+	label{
+		font-size: @FontS;
+	}// label
+	input[type=text], textarea {
+	width: 100%;
+	padding: 2%;
+	border: 2px solid @GreyBG;
+	border-radius: 4px;
+	margin: 2% 0 2% 0;
+  	}//textarea
+	input[type=submit] {
+		background-color: @GreyBG;
+		color: white;
+		padding: 1% 3%;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		&:hover{
+			background-color: black;
+		}//hover
+	}//submit
+}
